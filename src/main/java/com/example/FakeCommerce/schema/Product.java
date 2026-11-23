@@ -1,0 +1,38 @@
+package com.example.FakeCommerce.schema;
+
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.math.BigDecimal;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Entity
+@Table(name = "products")
+public class Product {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private  long id ;
+
+    @Column(nullable = false)
+    private String title ;
+
+    @Column(columnDefinition = "Text")
+    private String description;
+
+    @Column(nullable = false)
+    private BigDecimal price ;
+
+    private String  image ;
+
+    private String category;
+
+    private String rating;
+
+}
