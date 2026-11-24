@@ -3,10 +3,10 @@ package com.example.FakeCommerce.controllers;
 
 import com.example.FakeCommerce.schema.Product;
 import com.example.FakeCommerce.services.ProductService;
+
+import dtos.CreateProductRequestDto;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,6 +20,15 @@ public class ProductController {
     public List<Product> getAllProducts(){
         return productService.getAllProducts();
     }
+
+
+    @PostMapping
+    public Product createProduct(@RequestBody CreateProductRequestDto requestDto){
+        return productService.createProduct(requestDto);
+    }
+
+
+
 
 
 }

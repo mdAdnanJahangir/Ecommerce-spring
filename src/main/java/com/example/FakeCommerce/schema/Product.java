@@ -33,6 +33,6 @@ public class Product {
 
     private String category;
 
-    private String rating;
+   private String rating;
 
 }
