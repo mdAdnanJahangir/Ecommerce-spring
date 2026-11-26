@@ -3,7 +3,7 @@ package com.example.FakeCommerce.services;
 import com.example.FakeCommerce.schema.Product;
 
 
-import dtos.CreateProductRequestDto;
+import com.example.FakeCommerce.dtos.CreateProductRequestDto;
 import org.springframework.stereotype.Service;
 
 import com.example.FakeCommerce.repositories.ProductRepository;
@@ -39,6 +39,11 @@ public class ProductService{
                 .build();
         return productRepository.save(newProduct);
     }
+
+    public void deleteProduct(Long id){
+        productRepository.deleteById(id);
+    }
+
 
 
 

@@ -4,7 +4,7 @@ package com.example.FakeCommerce.controllers;
 import com.example.FakeCommerce.schema.Product;
 import com.example.FakeCommerce.services.ProductService;
 
-import dtos.CreateProductRequestDto;
+import com.example.FakeCommerce.dtos.CreateProductRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,7 +14,11 @@ import java.util.List;
 @RequestMapping("api/v1/products")
 @RequiredArgsConstructor
 public class ProductController {
+
     private final ProductService productService;
+
+
+
 
     @GetMapping
     public List<Product> getAllProducts(){
@@ -26,6 +30,15 @@ public class ProductController {
     public Product createProduct(@RequestBody CreateProductRequestDto requestDto){
         return productService.createProduct(requestDto);
     }
+
+    @DeleteMapping("/{id}")
+    public void deleteProduct(@PathVariable Long id){
+        productService.deleteProduct(id);
+    }
+
+
+
+
 
 
 
