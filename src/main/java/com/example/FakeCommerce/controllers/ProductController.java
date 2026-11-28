@@ -36,8 +36,8 @@ public class ProductController {
         productService.deleteProduct(id);
     }
 
-    @GetMapping("/category/{category}")
-    public List<Product> getProductByCategory(@PathVariable String category){
+    @GetMapping("/search")
+    public List<Product> getProductByCategory(@RequestParam("categoryName") String category){
         return productService.getProductsdByCategory(category);
     }
 
